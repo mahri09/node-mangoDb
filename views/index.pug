@@ -1,0 +1,32 @@
+doctype html 
+html 
+  head
+    meta(charset='UTF-8')
+    link(rel="stylesheet" href="/styles.css")
+    title 'Quotes' 
+  body#root
+    div
+      h1.Banner May Node and Express be with you.
+      form(action='/quotes' method='POST')
+        input(type="text" placeholder="name" name="name")
+        input(type="text" placeholder="quote" name="quote")
+        button(type="submit") Submit
+        //- pre=JSON.stringify(quotes, null, 2)
+      div
+        h2 Darth Vadar invades!
+        p Replace first selected quote with a by Darth Vadar's one
+        button(id="update-button") Replace Quote 
+      div
+        h2 Remove Darth Vadar!
+        p Delete one Darth Vadar's quote.
+        button(id="delete-button") Delete Quote
+      div#message
+    div 
+      ul
+        each quote in quotes
+          li
+            span=quote.name
+            span : 
+            span=quote.quote
+    script(src="/main.js")
+    
